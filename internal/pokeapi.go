@@ -5,7 +5,6 @@ import (
 	"io"
 	"net/http"
 	"time"
-	"github.com/Maxcarrassco/pokedexcli/models"
 )
 
 
@@ -13,7 +12,7 @@ const BASE_URL = "https://pokeapi.co/api/v2"
 
 var cache = NewCache(20 * time.Second)
 
-func GetRequest(url string, obj *models.PokedexLocation) error {
+func GetRequest[T any](url string, obj *T) error {
 	if ch, ok := cache.store[url]; ok {
 		json.Unmarshal(ch.val, obj)
 		return nil

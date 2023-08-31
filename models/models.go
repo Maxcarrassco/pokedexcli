@@ -15,13 +15,13 @@ type PokedexLocation struct {
 
 type Command struct {
 	Description string
-	CallbackFn func(args...string) error
+	CallbackFn func(arg string) error
 }
 
 
 
 
-type PokeLocationArea struct {
+type PokedexLocationArea struct {
 	EncounterMethodRates []struct {
 		EncounterMethod struct {
 			Name string `json:"name"`
